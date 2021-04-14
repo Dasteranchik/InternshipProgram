@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "e48c63e6-c42f-457e-949c-64bf2d477c0b",
+    "Name": "UsrPeriodicalPublicationSection",
+    "ModifiedOnUtc": "\/Date(1617809336000)\/",
+    "Parent": {
+      "UId": "7912fb69-4fee-429f-8b23-93943c35d66d",
+      "Name": "BaseSectionV2"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Схема раздела: \"Периодические издания\""
+  }
+}

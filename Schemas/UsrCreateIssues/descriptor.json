@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "6250916b-72a4-4397-ae93-6992bf037954",
+    "Name": "UsrCreateIssues",
+    "ModifiedOnUtc": "\/Date(1618250723000)\/",
+    "Parent": {
+      "UId": "daca7f4f-4514-48c7-9c99-efec4f6a4782",
+      "Name": "UsrCreateStatements"
+    },
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Создание деталей Выпуски"
+  }
+}

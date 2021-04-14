@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Схема раздела: &quot;Периодические издания&quot;" />
+			<Item Name="LocalizableStrings.AddingDetailsButton.Value" Value="Добавление 6 деталей" />
+			<Item Name="LocalizableStrings.Caption.Value" Value="Периодические издания" />
+			<Item Name="LocalizableStrings.LimitPublicationMessage.Value" Value="Производственные мощности ограничены и допускается не более {0} изданий" />
+			<Item Name="LocalizableStrings.ReleaseButton.Value" Value="ReleaseButton" />
+		</Items>
+	</Group>
+</Resources>

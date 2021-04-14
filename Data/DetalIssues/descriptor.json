@@ -1,0 +1,49 @@
+﻿{
+  "Descriptor": {
+    "UId": "1584be31-0553-4db5-ad5b-dff791975aaa",
+    "Name": "DetalIssues",
+    "ModifiedOnUtc": "\/Date(1617611314000)\/",
+    "InstallType": 0,
+    "Schema": {
+      "UId": "f2f4fd8d-781b-4342-8d45-e114dbb7667b",
+      "Name": "UsrIssuesEdition"
+    },
+    "Columns": [
+      {
+        "ColumnUId": "5e28444f-37eb-4f23-9245-40001af266c0",
+        "IsForceUpdate": false,
+        "IsKey": false,
+        "ColumnName": "UsrReleaseDate",
+        "DataTypeValueUId": "603d4960-a1a2-45e9-b232-206a54421b01"
+      },
+      {
+        "ColumnUId": "3a5d304a-3995-4e1c-8593-d59d35761064",
+        "IsForceUpdate": false,
+        "IsKey": false,
+        "ColumnName": "UsrCodeColumn",
+        "DataTypeValueUId": "b295071f-7ea9-4e62-8d1a-919bf3732ff2"
+      },
+      {
+        "ColumnUId": "c43fa1af-5670-40c1-b862-fecad422f148",
+        "IsForceUpdate": false,
+        "IsKey": false,
+        "ColumnName": "UsrCirculationInt",
+        "DataTypeValueUId": "6b6b74e2-820d-490e-a017-2b73d4ccf2b0"
+      },
+      {
+        "ColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+        "IsForceUpdate": false,
+        "IsKey": true,
+        "ColumnName": "Id",
+        "DataTypeValueUId": "23018567-a13c-4320-8687-fd6f9e3699bd"
+      },
+      {
+        "ColumnUId": "7814bde7-7480-41e4-87bb-46b963b7a53d",
+        "IsForceUpdate": false,
+        "IsKey": false,
+        "ColumnName": "UsrReleaseStatus",
+        "DataTypeValueUId": "b295071f-7ea9-4e62-8d1a-919bf3732ff2"
+      }
+    ]
+  }
+}

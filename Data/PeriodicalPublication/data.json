@@ -1,0 +1,115 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "bd2e4a69-7e83-4947-85eb-223ed76a0b05"
+        },
+        {
+          "SchemaColumnUId": "adbdba44-4b8b-4ee8-a32d-e04e8e6d27c3",
+          "Value": "456апр87"
+        },
+        {
+          "SchemaColumnUId": "b08b923f-4882-4fa7-9e75-a092587cd52e",
+          "Value": ""
+        },
+        {
+          "SchemaColumnUId": "4341df47-0b42-45bf-b233-b2cb97d163ec",
+          "Value": "9a58fa71-4dcf-412b-91a9-0a2dbfb7d75b",
+          "DisplayValue": "Еженедельно"
+        },
+        {
+          "SchemaColumnUId": "ab304a8d-857a-4191-b789-6b247ff2e27f",
+          "Value": "Мурзилка"
+        },
+        {
+          "SchemaColumnUId": "608e999c-3756-4c1b-9210-9f86a64552b2",
+          "Value": ""
+        },
+        {
+          "SchemaColumnUId": "7822b007-ae02-4ce4-89d5-ca7323476353",
+          "Value": "\/Date(1614891600000+0300)\/"
+        },
+        {
+          "SchemaColumnUId": "915eb3b7-f07d-4fc1-b505-e3ac5b30a413",
+          "Value": true
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "1a959825-d20e-4f44-825b-55f43033cc1a"
+        },
+        {
+          "SchemaColumnUId": "adbdba44-4b8b-4ee8-a32d-e04e8e6d27c3",
+          "Value": "123вйцу123"
+        },
+        {
+          "SchemaColumnUId": "b08b923f-4882-4fa7-9e75-a092587cd52e",
+          "Value": ""
+        },
+        {
+          "SchemaColumnUId": "4341df47-0b42-45bf-b233-b2cb97d163ec",
+          "Value": "9ef772fc-9e2a-4f5b-b933-7ee0b7eb824e",
+          "DisplayValue": "Ежемесячно"
+        },
+        {
+          "SchemaColumnUId": "ab304a8d-857a-4191-b789-6b247ff2e27f",
+          "Value": "Ежемесячник"
+        },
+        {
+          "SchemaColumnUId": "608e999c-3756-4c1b-9210-9f86a64552b2",
+          "Value": ""
+        },
+        {
+          "SchemaColumnUId": "7822b007-ae02-4ce4-89d5-ca7323476353",
+          "Value": "\/Date(1614632400000+0300)\/"
+        },
+        {
+          "SchemaColumnUId": "915eb3b7-f07d-4fc1-b505-e3ac5b30a413",
+          "Value": false
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "43752042-f6d1-4db1-9341-894a2354a239"
+        },
+        {
+          "SchemaColumnUId": "adbdba44-4b8b-4ee8-a32d-e04e8e6d27c3",
+          "Value": "цйукцйу6546"
+        },
+        {
+          "SchemaColumnUId": "b08b923f-4882-4fa7-9e75-a092587cd52e",
+          "Value": ""
+        },
+        {
+          "SchemaColumnUId": "4341df47-0b42-45bf-b233-b2cb97d163ec",
+          "Value": "9a58fa71-4dcf-412b-91a9-0a2dbfb7d75b",
+          "DisplayValue": "Еженедельно"
+        },
+        {
+          "SchemaColumnUId": "ab304a8d-857a-4191-b789-6b247ff2e27f",
+          "Value": "Еженедельник"
+        },
+        {
+          "SchemaColumnUId": "608e999c-3756-4c1b-9210-9f86a64552b2",
+          "Value": ""
+        },
+        {
+          "SchemaColumnUId": "7822b007-ae02-4ce4-89d5-ca7323476353",
+          "Value": "null"
+        },
+        {
+          "SchemaColumnUId": "915eb3b7-f07d-4fc1-b505-e3ac5b30a413",
+          "Value": false
+        }
+      ]
+    }
+  ]
+}

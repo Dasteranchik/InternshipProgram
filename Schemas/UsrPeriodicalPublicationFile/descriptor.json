@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "f8f30895-941b-4333-8bd0-01d3daaa1c5d",
+    "Name": "UsrPeriodicalPublicationFile",
+    "ModifiedOnUtc": "\/Date(1614711357000)\/",
+    "Parent": {
+      "UId": "556c5867-60a7-4456-aae1-a57a122bef70",
+      "Name": "File"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Файл и ссылка объекта Периодические издания",
+    "DependsOn": []
+  }
+}

@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "05068298-123d-430f-963a-f94d222fc786",
+    "Name": "UsrCustomNumberScheduled",
+    "ModifiedOnUtc": "\/Date(1615660377000)\/",
+    "ManagerName": "SourceCodeSchemaManager",
+    "Caption": "UsrCustomNumberScheduled",
+    "DependsOn": []
+  }
+}

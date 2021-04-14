@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Периодические издания" />
+			<Item Name="Columns.UsrCodeString.Caption" Value="Код" />
+			<Item Name="Columns.UsrCommentString.Caption" Value="Комментарий" />
+			<Item Name="Columns.UsrFrequencyrLookup.Caption" Value="Периодичность" />
+			<Item Name="Columns.UsrName.Caption" Value="Название" />
+			<Item Name="Columns.UsrNotes.Caption" Value="Заметки" />
+			<Item Name="Columns.UsrReleaseDate.Caption" Value="Дата последнего выпуска" />
+			<Item Name="Columns.UsrResponsibleLookup.Caption" Value="Ответственный" />
+			<Item Name="Columns.UsrValidBoolean.Caption" Value="Активно" />
+		</Items>
+	</Group>
+</Resources>
