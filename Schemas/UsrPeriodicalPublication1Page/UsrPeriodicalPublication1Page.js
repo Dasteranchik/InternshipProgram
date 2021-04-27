@@ -44,6 +44,12 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants"], function(
 								next();
 							}, this);
 						},
+						function(next) {
+							this.ValidateMaxNumberPublication(function(result, countPublication){
+								countPublication = result;
+								next();
+							}, this);
+						},
 						function(next){
 							this.getActiveRecordsValidate(function(result) {
 								if (result && countPublication){
@@ -79,17 +85,22 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants"], function(
 						esq.filters.add("dailyFrequencyFilter", dailyFrequencyFilter);
 						esq.filters.add("isActiveFilter", isActiveFilter);
 						esq.getEntityCollection(function (result) {
-							this.Terrasoft.SysSettings.querySysSettingsItem("MaxNumberActiveDailyPublication", function(maxCount) {
-								if (result.collection.collection.length >= maxCount) {
-									response.success = true;
-									callback.call(this, response);
-								}
-							});
+							callback(result.collection.collection.length);
 						}, this);
 					} else{
 						callback.call(this, response);
 					}
 				
+			},
+			ValidateMaxNumberPublication: function(callback, countPublication){
+				var response = {success: false};
+				this.Terrasoft.SysSettings.querySysSettingsItem("MaxNumberActiveDailyPublication", function(maxCount) {
+					if (countPublication >= maxCount) {
+						response.success = true;
+						callback.call(this, response);
+					}
+					callback.call(this, response);
+				});
 			},
 			getActiveRecordsValidate: function(callback) {
 				var scope = this;
