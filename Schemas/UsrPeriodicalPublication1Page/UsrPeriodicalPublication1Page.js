@@ -1,7 +1,13 @@
-define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants"], function(UsrConfigurationConstants) {
+define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtilities"], 
+	function(UsrConfigurationConstants, RightUtilities) {
 	return {
 		entitySchemaName: "UsrPeriodicalPublication",
-		attributes: {},
+		attributes: {
+			"CanCreateIssuesBP": {
+				dataValueType: Terrasoft.DataValueType.BOOLEAN,
+				value: true
+			},
+		},
 		modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/,
 		details: /**SCHEMA_DETAILS*/{
 			"Files": {
@@ -27,9 +33,21 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants"], function(
 				var actionMenuItems = this.callParent(arguments);
 				actionMenuItems.addItem(this.getButtonMenuItem({
 					"Caption": {"bindTo": "Resources.Strings.AddingDetailsButton"},
-					"Tag": "onReleaseButton"
+					"Tag": "onReleaseButton",
+					"Visible": { "bindTo": "CanCreateIssuesBP" }
 				}));
 				return actionMenuItems;
+			},
+			init: function(){
+				this.callParent(arguments);
+				this.CheckAccessIssues();
+			},
+			CheckAccessIssues: function() {
+				RightUtilities.checkCanExecuteOperation({
+					operation: "CanCreateIssuesBP"
+				}, function(result) {
+					this.set("CanCreateIssuesBP", result);
+				}, this);
 			},
 			asyncValidate: function(callback, scope) {
 				this.callParent([function(response) {
@@ -361,25 +379,6 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants"], function(
 				"values": {
 					"order": 1
 				}
-			},
-			{
-				"operation": "insert",
-				"name": "MainContactSectionButton",
-				"values": {
-					"itemType": 5,
-					"caption": {
-						"bindTo": "Resources.Strings.ReleaseButton"
-					},
-					"click": {
-						"bindTo": "onReleaseButton"
-					},
-					"layout": {
-						"column": 1,
-						"row": 6,
-						"colSpan": 1
-					}
-				},
-				"index": 1
 			}
 		]/**SCHEMA_DIFF*/
 	};
