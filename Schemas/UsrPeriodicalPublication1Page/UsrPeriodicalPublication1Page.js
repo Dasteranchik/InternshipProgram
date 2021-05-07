@@ -2,11 +2,12 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 	function(UsrConfigurationConstants, RightUtilities) {
 	return {
 		entitySchemaName: "UsrPeriodicalPublication",
-		attributes: {
-			"CanCreateIssuesBP": {
-				dataValueType: Terrasoft.DataValueType.BOOLEAN,
-				value: true
-			},
+		attributes: {},
+		messages: {
+			"GetEnabledPlanPaymentDate": {
+				mode: Terrasoft.MessageMode.PTP,
+				direction: Terrasoft.MessageDirectionType.PUBLISH
+			}
 		},
 		modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/,
 		details: /**SCHEMA_DETAILS*/{
@@ -34,19 +35,22 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 				actionMenuItems.addItem(this.getButtonMenuItem({
 					"Caption": {"bindTo": "Resources.Strings.AddingDetailsButton"},
 					"Tag": "onReleaseButton",
-					"Visible": { "bindTo": "CanCreateIssuesBP" }
+					"Visible": { "bindTo": "canCreateIssuesBP" }
 				}));
 				return actionMenuItems;
 			},
-			init: function(){
+			onEntityInitialized: function(){
 				this.callParent(arguments);
-				this.CheckAccessIssues();
+				this.sandbox.publish("GetEnabledPlanPaymentDate", 
+					this.checkAccessIssues(), 
+					["UsrPeriodicalPublicationSection"]
+					);
 			},
-			CheckAccessIssues: function() {
+			checkAccessIssues: function() {
 				RightUtilities.checkCanExecuteOperation({
 					operation: "CanCreateIssuesBP"
 				}, function(result) {
-					this.set("CanCreateIssuesBP", result);
+					this.set("canCreateIssuesBP", result);
 				}, this);
 			},
 			asyncValidate: function(callback, scope) {
@@ -55,6 +59,10 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 						return;
 					}
 					var countPublication;
+					//esq.count
+					//условие на валидацию, дабы не всегда срабатывало
+					//collection.js изучить
+
 					Terrasoft.chain(
 						function(next) {
 							this.validatePublicationPrograms(function(result){
@@ -63,11 +71,11 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 							}, this);
 						},
 						function(next) {
-							this.ValidateMaxNumberPublication(function(result, countPublication){
+							this.validateMaxNumberPublication(function(result, countPublication){
 								countPublication = result;
 								next();
 							}, this);
-						},
+						},//слить в одну
 						function(next){
 							this.getActiveRecordsValidate(function(result) {
 								if (result && countPublication){
@@ -77,7 +85,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 								}
 								next();
 							}, this);
-						}, 
+						},//слить в одну
 						function(next) {
 							callback.call(scope || this, response);
 								next();
@@ -87,7 +95,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 				}, 
 				this]);
 			},
-			validatePublicationPrograms: function(callback) {
+			validatePublicationPrograms: function(callback) {//переименовать
 					var frequency = this.get("UsrFrequencyrLookup");
 					var response = {success: false};
 					if (frequency && frequency.value) {
@@ -110,7 +118,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 					}
 				
 			},
-			ValidateMaxNumberPublication: function(callback, countPublication){
+			validateMaxNumberPublication: function(callback, countPublication){//переименовать
 				var response = {success: false};
 				this.Terrasoft.SysSettings.querySysSettingsItem("MaxNumberActiveDailyPublication", function(maxCount) {
 					if (countPublication >= maxCount) {
