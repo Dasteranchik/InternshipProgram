@@ -1,27 +1,29 @@
-define("UsrPeriodicalPublicationSection", [], function() {
+define("UsrPeriodicalPublicationSection", ["RightUtilities"], function(RightUtilities) {
 	return {
 		entitySchemaName: "UsrPeriodicalPublication",
 		messages: {
-			"GetEnabledPlanPaymentDate": {
+			"GetCreateIssuesBP": {
 				mode: Terrasoft.MessageMode.PTP,
-				direction: Terrasoft.MessageDirectionType.SUBSCRIBE
+				direction: Terrasoft.MessageDirectionType.PUBLISH
 			}
 		},
 		attributes: {
-			"canCreateIssuesBP": {
-				"type": this.Terrasoft.ViewModelColumnType.VIRTUAL_COLUMN,
-				"dataValueType": Terrasoft.DataValueType.BOOLEAN,
-				"value": true
-			},
+			
 		},
 		methods: {
 			init:function() {
 				this.callParent(arguments);
-				this.sandbox.subscribe("GetEnabledPlanPaymentDate",
-					function(args){this.$canCreateIssuesBP = args;},
-					this,
-					["UsrPeriodicalPublicationSection"]
+				this.sandbox.publish("GetCreateIssuesBP", 
+					this.checkAccessIssues(), 
+					["UsrPeriodicalPublication1Page"]
 					);
+			},
+			checkAccessIssues: function() {
+				RightUtilities.checkCanExecuteOperation({
+					operation: "CanCreateIssuesBP"
+				}, function(result) {
+					this.set("canCreateIssuesBP", result);
+				}, this);
 			},
 		},
 		details: /**SCHEMA_DETAILS*/{}/**SCHEMA_DETAILS*/,

@@ -1,12 +1,18 @@
-define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtilities"], 
+define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtilities"], 
 	function(UsrConfigurationConstants, RightUtilities) {
 	return {
 		entitySchemaName: "UsrPeriodicalPublication",
-		attributes: {},
+		attributes: {
+			"canCreateIssuesBP": {
+				"type": this.Terrasoft.ViewModelColumnType.VIRTUAL_COLUMN,
+				"dataValueType": Terrasoft.DataValueType.BOOLEAN,
+				"value": true
+			},
+		},
 		messages: {
-			"GetEnabledPlanPaymentDate": {
+			"GetCreateIssuesBP": {
 				mode: Terrasoft.MessageMode.PTP,
-				direction: Terrasoft.MessageDirectionType.PUBLISH
+				direction: Terrasoft.MessageDirectionType.SUBSCRIBE
 			}
 		},
 		modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/,
@@ -32,19 +38,13 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 		methods: {
 			getActions: function() {
 				var actionMenuItems = this.callParent(arguments);
+				this.checkAccessIssues();
 				actionMenuItems.addItem(this.getButtonMenuItem({
 					"Caption": {"bindTo": "Resources.Strings.AddingDetailsButton"},
 					"Tag": "onReleaseButton",
 					"Visible": { "bindTo": "canCreateIssuesBP" }
 				}));
 				return actionMenuItems;
-			},
-			onEntityInitialized: function(){
-				this.callParent(arguments);
-				this.sandbox.publish("GetEnabledPlanPaymentDate", 
-					this.checkAccessIssues(), 
-					["UsrPeriodicalPublicationSection"]
-					);
 			},
 			checkAccessIssues: function() {
 				RightUtilities.checkCanExecuteOperation({
@@ -53,6 +53,16 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants","RightUtili
 					this.set("canCreateIssuesBP", result);
 				}, this);
 			},
+			onEntityInitialized: function(){
+				this.callParent(arguments);
+				this.sandbox.subscribe("GetCreateIssuesBP",
+					function(args){this.$canCreateIssuesBP = args;},
+					this,
+					["UsrPeriodicalPublicationSection"]
+					);
+				
+			},
+			
 			asyncValidate: function(callback, scope) {
 				this.callParent([function(response) {
 					if (!this.validateResponse(response)) {
