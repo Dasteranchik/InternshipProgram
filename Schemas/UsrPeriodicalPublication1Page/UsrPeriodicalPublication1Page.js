@@ -68,34 +68,25 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 					if (!this.validateResponse(response)) {
 						return;
 					}
-					var countPublication;
 					//esq.count
 					//условие на валидацию, дабы не всегда срабатывало
 					//collection.js изучить
-
 					Terrasoft.chain(
 						function(next) {
-							this.validatePublicationPrograms(function(result){
-								countPublication = result;
-								next();
+							this.numberDailyPublishedPublications(function(result){
+								next(result);
 							}, this);
 						},
-						function(next) {
-							this.validateMaxNumberPublication(function(result, countPublication){
-								countPublication = result;
-								next();
-							}, this);
-						},//слить в одну
-						function(next){
-							this.getActiveRecordsValidate(function(result) {
-								if (result && countPublication){
+						function(next, countPublication) {
+							this.checkingAcceptableDailies(function(result){
+								if (result){
 									var msg = scope.get("Resources.Strings.LimitPublicationMessage");
 									scope.showInformationDialog(msg);
 									response.success = false;
 								}
 								next();
-							}, this);
-						},//слить в одну
+							}, this, countPublication);
+						},
 						function(next) {
 							callback.call(scope || this, response);
 								next();
@@ -105,7 +96,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 				}, 
 				this]);
 			},
-			validatePublicationPrograms: function(callback) {//переименовать
+			numberDailyPublishedPublications: function(callback) {
 					var frequency = this.get("UsrFrequencyrLookup");
 					var response = {success: false};
 					if (frequency && frequency.value) {
@@ -126,25 +117,13 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 					} else{
 						callback.call(this, response);
 					}
-				
 			},
-			validateMaxNumberPublication: function(callback, countPublication){//переименовать
-				var response = {success: false};
+			checkingAcceptableDailies: function(callback, scope, countPublication){//переименовать
 				this.Terrasoft.SysSettings.querySysSettingsItem("MaxNumberActiveDailyPublication", function(maxCount) {
-					if (countPublication >= maxCount) {
-						response.success = true;
-						callback.call(this, response);
-					}
-					callback.call(this, response);
-				});
-			},
-			getActiveRecordsValidate: function(callback) {
-				var scope = this;
-				scope.validatePublicationPrograms(function(result){
 					var frequency = scope.get("UsrFrequencyrLookup");
 					var active = scope.get("UsrValidBoolean");
 					callback(frequency.value === UsrConfigurationConstants.Daily
-							&& active);
+						&& active && countPublication >= maxCount);
 				});
 			},
 			startProcess: function(callback) {
