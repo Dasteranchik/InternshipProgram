@@ -2,18 +2,18 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 	function(UsrConfigurationConstants, RightUtilities) {
 	return {
 		entitySchemaName: "UsrPeriodicalPublication",
+		messages: {
+			"GetCreateIssuesBP": {
+				mode: Terrasoft.MessageMode.PTP,
+				direction: Terrasoft.MessageDirectionType.SUBSCRIBE
+			}
+		},
 		attributes: {
 			"canCreateIssuesBP": {
 				"type": this.Terrasoft.ViewModelColumnType.VIRTUAL_COLUMN,
 				"dataValueType": Terrasoft.DataValueType.BOOLEAN,
 				"value": true
 			},
-		},
-		messages: {
-			"GetCreateIssuesBP": {
-				mode: Terrasoft.MessageMode.PTP,
-				direction: Terrasoft.MessageDirectionType.SUBSCRIBE
-			}
 		},
 		modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/,
 		details: /**SCHEMA_DETAILS*/{
@@ -46,6 +46,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 				}));
 				return actionMenuItems;
 			},
+
 			checkAccessIssues: function() {
 				RightUtilities.checkCanExecuteOperation({
 					operation: "CanCreateIssuesBP"
@@ -53,6 +54,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 					this.set("canCreateIssuesBP", result);
 				}, this);
 			},
+
 			onEntityInitialized: function(){
 				this.callParent(arguments);
 				this.sandbox.subscribe("GetCreateIssuesBP",
@@ -68,8 +70,10 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 					if (!this.validateResponse(response)) {
 						return;
 					}
-					//esq.count
-					//условие на валидацию, дабы не всегда срабатывало
+					if (!this.get("UsrValidBoolean")){
+						callback.call(scope || this, response);
+						return;
+					}
 					//collection.js изучить
 					Terrasoft.chain(
 						function(next) {
@@ -89,13 +93,12 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 						},
 						function(next) {
 							callback.call(scope || this, response);
-								next();
+							next();
 						},
-						this
-					);
-				}, 
-				this]);
+						this);
+				}, this]);
 			},
+
 			numberDailyPublishedPublications: function(callback) {
 					var frequency = this.get("UsrFrequencyrLookup");
 					var response = {success: false};
@@ -103,7 +106,8 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 						var esq = Ext.create("Terrasoft.EntitySchemaQuery", {
 							rootSchemaName: "UsrPeriodicalPublication"
 						});
-						esq.addColumn("Id");
+						esq.addAggregationSchemaColumn(
+							"Id", this.Terrasoft.AggregationType.COUNT, "Count");
 						var dailyFrequencyFilter = esq.createColumnFilterWithParameter(Terrasoft.ComparisonType.EQUAL, 
 							"UsrFrequencyrLookup", UsrConfigurationConstants.Daily);
 						var isActiveFilter = esq.createColumnFilterWithParameter(Terrasoft.ComparisonType.EQUAL, 
@@ -112,13 +116,15 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 						esq.filters.add("dailyFrequencyFilter", dailyFrequencyFilter);
 						esq.filters.add("isActiveFilter", isActiveFilter);
 						esq.getEntityCollection(function (result) {
-							callback(result.collection.collection.length);
+							var item = result.collection.getByIndex(0);
+							callback(item.get("Count"));
 						}, this);
 					} else{
 						callback.call(this, response);
 					}
 			},
-			checkingAcceptableDailies: function(callback, scope, countPublication){//переименовать
+
+			checkingAcceptableDailies: function(callback, scope, countPublication){
 				this.Terrasoft.SysSettings.querySysSettingsItem("MaxNumberActiveDailyPublication", function(maxCount) {
 					var frequency = scope.get("UsrFrequencyrLookup");
 					var active = scope.get("UsrValidBoolean");
@@ -126,6 +132,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 						&& active && countPublication >= maxCount);
 				});
 			},
+
 			startProcess: function(callback) {
                 Terrasoft.ProcessModuleUtilities.executeProcess({
                     sysProcessName: "UsrCreateIssues",
@@ -138,17 +145,24 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                     scope: this
                 });
             },
+			
             onReleaseButton: function(){
                 this.startProcess(
                     function(){
 						this.showInformationDialog("6 записей Выпуски было добавлено");
 						this.hideBodyMask();
-						//this.reloadEntity(); перезагружает карточку со всем
                 });
             },
 		},
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
 		diff: /**SCHEMA_DIFF*/[
+			{
+				"operation": "merge",
+				"name": "ESNTab",
+				"values": {
+					"order": 1
+				}
+			},
 			{
 				"operation": "insert",
 				"name": "UsrNamedac09aa8-88f6-40e9-8298-62985a98d1a1",
@@ -369,13 +383,6 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 				"parentName": "NotesControlGroup",
 				"propertyName": "items",
 				"index": 0
-			},
-			{
-				"operation": "merge",
-				"name": "ESNTab",
-				"values": {
-					"order": 1
-				}
 			}
 		]/**SCHEMA_DIFF*/
 	};
