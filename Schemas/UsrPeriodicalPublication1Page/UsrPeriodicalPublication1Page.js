@@ -69,7 +69,8 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                         if (!this.validateResponse(response)) {
                             return;
                         }
-                        if (!this.get("UsrValidBoolean") && this.get("UsrFrequencyrLookup") === UsrConfigurationConstants.Daily) {
+                        if (!this.get("UsrValidBoolean") &&
+                            this.get("UsrFrequencyrLookup") === UsrConfigurationConstants.Daily) {
                             callback.call(scope || this, response);
                             return;
                         }
@@ -125,9 +126,11 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                 },
 
                 checkingAcceptableDailies: function(callback) {
-                    this.Terrasoft.SysSettings.querySysSettingsItem("MaxNumberActiveDailyPublication", function(maxCount) {
-                        callback.call(this, maxCount);
-                    }, this);
+                    this.Terrasoft.SysSettings.querySysSettingsItem(
+                        "MaxNumberActiveDailyPublication",
+                        function(maxCount) {
+                            callback.call(this, maxCount);
+                        }, this);
                 },
 
                 startProcess: function(callback) {
@@ -146,7 +149,8 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                 onReleaseButton: function() {
                     this.startProcess(
                         function() {
-                            this.showInformationDialog("6 записей Выпуски было добавлено"); //Вынести в ресурсы
+                            var message = this.get("Resources.Strings.LimitPublicationMessage");
+                            this.showInformationDialog(message);
                             this.hideBodyMask();
                         });
                 },
