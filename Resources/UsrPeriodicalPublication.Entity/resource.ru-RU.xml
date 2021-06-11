@@ -10,6 +10,7 @@
 			<Item Name="Columns.UsrNotes.Caption" Value="Заметки" />
 			<Item Name="Columns.UsrReleaseDate.Caption" Value="Дата последнего выпуска" />
 			<Item Name="Columns.UsrResponsibleLookup.Caption" Value="Ответственный" />
+			<Item Name="Columns.UsrTemplate.Caption" Value="Шаблон" />
 			<Item Name="Columns.UsrValidBoolean.Caption" Value="Активно" />
 		</Items>
 	</Group>

@@ -4,7 +4,6 @@
 		<Items>
 			<Item Name="Caption" Value="Страница редактирования: &quot;Периодические издания&quot;" />
 			<Item Name="LocalizableStrings.AddingDetailsButton.Value" Value="Добавление 6 деталей" />
-			<Item Name="LocalizableStrings.AddingDetailsReleases.Value" Value="6 записей Выпуски было добавлено" />
 			<Item Name="LocalizableStrings.LimitPublicationMessage.Value" Value="Производственные мощности ограничены и допускается не более {0} изданий" />
 		</Items>
 	</Group>

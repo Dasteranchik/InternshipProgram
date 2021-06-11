@@ -15,25 +15,25 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                     "value": true
                 },
             },
-            modules: /**SCHEMA_MODULES*/ {} /**SCHEMA_MODULES*/ ,
-            details: /**SCHEMA_DETAILS*/ {
-                "Files": {
-                    "schemaName": "FileDetailV2",
-                    "entitySchemaName": "UsrPeriodicalPublicationFile",
-                    "filter": {
-                        "masterColumn": "Id",
-                        "detailColumn": "UsrPeriodicalPublication"
-                    }
-                },
-                "UsrIssuesEditionDetail": {
-                    "schemaName": "UsrIssuesEditionDetail",
-                    "entitySchemaName": "UsrIssuesEdition",
-                    "filter": {
-                        "detailColumn": "UsrCodeColumn",
-                        "masterColumn": "Id"
-                    }
-                }
-            } /**SCHEMA_DETAILS*/ ,
+            modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/ ,
+            details: /**SCHEMA_DETAILS*/{
+			"Files": {
+				"schemaName": "FileDetailV2",
+				"entitySchemaName": "UsrPeriodicalPublicationFile",
+				"filter": {
+					"masterColumn": "Id",
+					"detailColumn": "UsrPeriodicalPublication"
+				}
+			},
+			"UsrIssuesEditionDetail": {
+				"schemaName": "UsrIssuesEditionDetail",
+				"entitySchemaName": "UsrIssuesEdition",
+				"filter": {
+					"detailColumn": "UsrCodeColumn",
+					"masterColumn": "Id"
+				}
+			}
+		}/**SCHEMA_DETAILS*/ ,
             businessRules: /**SCHEMA_BUSINESS_RULES*/ {} /**SCHEMA_BUSINESS_RULES*/ ,
             methods: {
                 getActions: function() {
@@ -155,235 +155,253 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                         });
                 },
             },
-            dataModels: /**SCHEMA_DATA_MODELS*/ {} /**SCHEMA_DATA_MODELS*/ ,
-            diff: /**SCHEMA_DIFF*/ [{
-                    "operation": "merge",
-                    "name": "ESNTab",
-                    "values": {
-                        "order": 1
-                    }
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrNamedac09aa8-88f6-40e9-8298-62985a98d1a1",
-                    "values": {
-                        "layout": {
-                            "colSpan": 24,
-                            "rowSpan": 1,
-                            "column": 0,
-                            "row": 0,
-                            "layoutName": "ProfileContainer"
-                        },
-                        "bindTo": "UsrName"
-                    },
-                    "parentName": "ProfileContainer",
-                    "propertyName": "items",
-                    "index": 0
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrName3b3a2aa8-ab63-4c30-8aa8-58b60a07de2c",
-                    "values": {
-                        "layout": {
-                            "colSpan": 12,
-                            "rowSpan": 1,
-                            "column": 0,
-                            "row": 0,
-                            "layoutName": "Header"
-                        },
-                        "bindTo": "UsrName"
-                    },
-                    "parentName": "Header",
-                    "propertyName": "items",
-                    "index": 0
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrCodeString",
-                    "values": {
-                        "layout": {
-                            "colSpan": 12,
-                            "rowSpan": 1,
-                            "column": 12,
-                            "row": 0,
-                            "layoutName": "Header"
-                        },
-                        "bindTo": "UsrCodeString",
-                        "enabled": true
-                    },
-                    "parentName": "Header",
-                    "propertyName": "items",
-                    "index": 1
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrValidBoolean",
-                    "values": {
-                        "layout": {
-                            "colSpan": 12,
-                            "rowSpan": 1,
-                            "column": 0,
-                            "row": 1,
-                            "layoutName": "Header"
-                        },
-                        "bindTo": "UsrValidBoolean",
-                        "enabled": true
-                    },
-                    "parentName": "Header",
-                    "propertyName": "items",
-                    "index": 2
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrReleaseDate",
-                    "values": {
-                        "layout": {
-                            "colSpan": 12,
-                            "rowSpan": 1,
-                            "column": 12,
-                            "row": 1,
-                            "layoutName": "Header"
-                        },
-                        "bindTo": "UsrReleaseDate",
-                        "enabled": true
-                    },
-                    "parentName": "Header",
-                    "propertyName": "items",
-                    "index": 3
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrFrequencyrLookup",
-                    "values": {
-                        "layout": {
-                            "colSpan": 12,
-                            "rowSpan": 1,
-                            "column": 0,
-                            "row": 2,
-                            "layoutName": "Header"
-                        },
-                        "bindTo": "UsrFrequencyrLookup",
-                        "enabled": true,
-                        "contentType": 3
-                    },
-                    "parentName": "Header",
-                    "propertyName": "items",
-                    "index": 4
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrResponsibleLookup",
-                    "values": {
-                        "layout": {
-                            "colSpan": 12,
-                            "rowSpan": 1,
-                            "column": 12,
-                            "row": 2,
-                            "layoutName": "Header"
-                        },
-                        "bindTo": "UsrResponsibleLookup",
-                        "enabled": true,
-                        "contentType": 5
-                    },
-                    "parentName": "Header",
-                    "propertyName": "items",
-                    "index": 5
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrCommentString",
-                    "values": {
-                        "layout": {
-                            "colSpan": 24,
-                            "rowSpan": 1,
-                            "column": 0,
-                            "row": 3,
-                            "layoutName": "Header"
-                        },
-                        "bindTo": "UsrCommentString",
-                        "enabled": true
-                    },
-                    "parentName": "Header",
-                    "propertyName": "items",
-                    "index": 6
-                },
-                {
-                    "operation": "insert",
-                    "name": "NotesAndFilesTab",
-                    "values": {
-                        "caption": {
-                            "bindTo": "Resources.Strings.NotesAndFilesTabCaption"
-                        },
-                        "items": [],
-                        "order": 0
-                    },
-                    "parentName": "Tabs",
-                    "propertyName": "tabs",
-                    "index": 0
-                },
-                {
-                    "operation": "insert",
-                    "name": "UsrIssuesEditionDetail",
-                    "values": {
-                        "itemType": 2,
-                        "markerValue": "added-detail"
-                    },
-                    "parentName": "NotesAndFilesTab",
-                    "propertyName": "items",
-                    "index": 0
-                },
-                {
-                    "operation": "insert",
-                    "name": "Files",
-                    "values": {
-                        "itemType": 2
-                    },
-                    "parentName": "NotesAndFilesTab",
-                    "propertyName": "items",
-                    "index": 1
-                },
-                {
-                    "operation": "insert",
-                    "name": "NotesControlGroup",
-                    "values": {
-                        "itemType": 15,
-                        "caption": {
-                            "bindTo": "Resources.Strings.NotesGroupCaption"
-                        },
-                        "items": []
-                    },
-                    "parentName": "NotesAndFilesTab",
-                    "propertyName": "items",
-                    "index": 2
-                },
-                {
-                    "operation": "insert",
-                    "name": "Notes",
-                    "values": {
-                        "bindTo": "UsrNotes",
-                        "dataValueType": 1,
-                        "contentType": 4,
-                        "layout": {
-                            "column": 0,
-                            "row": 0,
-                            "colSpan": 24
-                        },
-                        "labelConfig": {
-                            "visible": false
-                        },
-                        "controlConfig": {
-                            "imageLoaded": {
-                                "bindTo": "insertImagesToNotes"
-                            },
-                            "images": {
-                                "bindTo": "NotesImagesCollection"
-                            }
-                        }
-                    },
-                    "parentName": "NotesControlGroup",
-                    "propertyName": "items",
-                    "index": 0
-                }
-            ] /**SCHEMA_DIFF*/
+            dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/ ,
+            diff: /**SCHEMA_DIFF*/[
+			{
+				"operation": "insert",
+				"name": "UsrNamedac09aa8-88f6-40e9-8298-62985a98d1a1",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 0,
+						"layoutName": "ProfileContainer"
+					},
+					"bindTo": "UsrName"
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrName3b3a2aa8-ab63-4c30-8aa8-58b60a07de2c",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 0,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrName"
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrCodeString",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 12,
+						"row": 0,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrCodeString",
+					"enabled": true
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 1
+			},
+			{
+				"operation": "insert",
+				"name": "UsrValidBoolean",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 1,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrValidBoolean",
+					"enabled": true
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 2
+			},
+			{
+				"operation": "insert",
+				"name": "UsrReleaseDate",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 12,
+						"row": 1,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrReleaseDate",
+					"enabled": true
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "UsrFrequencyrLookup",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 2,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrFrequencyrLookup",
+					"enabled": true,
+					"contentType": 3
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 4
+			},
+			{
+				"operation": "insert",
+				"name": "UsrResponsibleLookup",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 12,
+						"row": 2,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrResponsibleLookup",
+					"enabled": true,
+					"contentType": 5
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 5
+			},
+			{
+				"operation": "insert",
+				"name": "UsrCommentString",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 4,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrCommentString",
+					"enabled": true
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 6
+			},
+			{
+				"operation": "insert",
+				"name": "UsrTemplateb66b3bdb-aae0-4621-9ee2-d6528d99b3e3",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 3,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrTemplate"
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 7
+			},
+			{
+				"operation": "insert",
+				"name": "NotesAndFilesTab",
+				"values": {
+					"caption": {
+						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+					},
+					"items": [],
+					"order": 0
+				},
+				"parentName": "Tabs",
+				"propertyName": "tabs",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrIssuesEditionDetail",
+				"values": {
+					"itemType": 2,
+					"markerValue": "added-detail"
+				},
+				"parentName": "NotesAndFilesTab",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "Files",
+				"values": {
+					"itemType": 2
+				},
+				"parentName": "NotesAndFilesTab",
+				"propertyName": "items",
+				"index": 1
+			},
+			{
+				"operation": "insert",
+				"name": "NotesControlGroup",
+				"values": {
+					"itemType": 15,
+					"caption": {
+						"bindTo": "Resources.Strings.NotesGroupCaption"
+					},
+					"items": []
+				},
+				"parentName": "NotesAndFilesTab",
+				"propertyName": "items",
+				"index": 2
+			},
+			{
+				"operation": "insert",
+				"name": "Notes",
+				"values": {
+					"bindTo": "UsrNotes",
+					"dataValueType": 1,
+					"contentType": 4,
+					"layout": {
+						"column": 0,
+						"row": 0,
+						"colSpan": 24
+					},
+					"labelConfig": {
+						"visible": false
+					},
+					"controlConfig": {
+						"imageLoaded": {
+							"bindTo": "insertImagesToNotes"
+						},
+						"images": {
+							"bindTo": "NotesImagesCollection"
+						}
+					}
+				},
+				"parentName": "NotesControlGroup",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "merge",
+				"name": "ESNTab",
+				"values": {
+					"order": 1
+				}
+			}
+		]/**SCHEMA_DIFF*/
         };
     });

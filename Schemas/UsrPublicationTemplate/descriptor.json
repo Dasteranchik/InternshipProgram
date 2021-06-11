@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "7e9e2cd6-8bbf-4b11-8f5b-eb39a0c80ba8",
+    "Name": "UsrPublicationTemplate",
+    "ModifiedOnUtc": "\/Date(1623231874000)\/",
+    "Parent": {
+      "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
+      "Name": "BaseEntity"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Шаблон издания"
+  }
+}
