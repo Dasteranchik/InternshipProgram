@@ -97,8 +97,8 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                         if (!this.validateResponse(response)) {
                             return;
                         }
-                        if (!this.get("UsrValidBoolean") &&
-                            this.get("UsrFrequencyrLookup") === UsrConfigurationConstants.Daily) {
+                        if (!(this.get("UsrValidBoolean") &&
+                            this.get("UsrFrequencyrLookup") === UsrConfigurationConstants.Daily)) {
                             callback.call(scope || this, response);
                             return;
                         }
