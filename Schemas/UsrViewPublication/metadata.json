@@ -39,6 +39,7 @@
 ~ MetaData.Schema.EG1.BK4 ["90027ac8-c9c3-4d21-a4f9-da1cde752cd1","08594d74-60b0-45ce-bf17-bac1a8b127f7","5f3bfbbe-1820-44ca-92f1-6f993169b2dd","dbf48103-dcf6-4f53-a052-d727a95ea0b4","e57d317f-6f21-48a8-9999-5ecf05719145","bdca0c6b-eb97-4d14-83df-aa53b214c463","f0646c74-f291-474f-9a10-143ee868f1c9","8140d7e7-fb91-4999-8347-543345440efb","db2f2393-5d29-47cf-a756-8e26392d342f","60ca0a5b-c2b5-4ee3-acd8-f25e9e91ec44","7feb971a-3b75-486d-bb0b-92352f82a420","2f317c63-b9de-4594-befc-1e8413c1ddfe","453da06c-6118-43bb-88cf-7a8f547090e7","17b638b4-f653-4bd5-9af3-e81689b5f42d","4dd835fd-20a9-40e3-9aa0-899ae48ad9d9","8a5a0739-a2a3-4581-9476-2909c2e98c39","a53d2c03-849b-47b6-9032-066c63d26056","76ca325d-c9c6-4992-b7d6-11b890506ae3"]
 + MetaData.Schema.EG1.Labels []
 = MetaData.Schema.D8 "11ab4bcb-9b23-4b6d-9c86-520fae925d75"
+= MetaData.Schema.D4 "05ca5d82-d347-4c32-815e-6a1afa01efc3"
 - MetaData.Schema.D2.["ae0e45ca-c495-4fe7-a39d-3ab7278e1617"].E16
 - MetaData.Schema.D2.["e80190a5-03b2-4095-90f7-a193a960adee"].E16
 - MetaData.Schema.D2.["ebf6bb93-8aa6-4a01-900d-c6ea67affe21"].E16
@@ -63,7 +64,7 @@
   "S4": "37aba74c-a5ed-4f59-bba8-5504803352f8",
   "E6": true,
   "E17": "UsrTypeId",
-  "E18": "UsrTypeName"
+  "E18": "UsrTypeUsrType"
 }
 ~ MetaData.Schema.D2 ["ae0e45ca-c495-4fe7-a39d-3ab7278e1617","e80190a5-03b2-4095-90f7-a193a960adee","ebf6bb93-8aa6-4a01-900d-c6ea67affe21","9928edec-4272-425a-93bb-48743fee4b04","3015559e-cbc6-406a-88af-07f7930be832","736c30a7-c0ec-4fa9-b034-2552b319b633","9e53fd7c-dde4-4502-a64c-b9e34148108b","3fabd836-6a53-4d8d-9069-6df88d9dae1e","05ca5d82-d347-4c32-815e-6a1afa01efc3","6f7cfacc-d7ef-42db-906d-82d0d7ba37eb"]
 = MetaData.Schema.D20.A2 "UsrViewPublicationEvents"

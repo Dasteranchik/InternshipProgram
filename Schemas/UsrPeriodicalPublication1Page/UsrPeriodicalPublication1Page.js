@@ -46,9 +46,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 					"detailColumn": "UsrCodeColumn",
 					"masterColumn": "Id"
 				}
-			},
-			
-			
+			}
 		}/**SCHEMA_DETAILS*/ ,
             businessRules: /**SCHEMA_BUSINESS_RULES*/ {} /**SCHEMA_BUSINESS_RULES*/ ,
             methods: {
@@ -306,24 +304,6 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 			},
 			{
 				"operation": "insert",
-				"name": "UsrCommentString",
-				"values": {
-					"layout": {
-						"colSpan": 24,
-						"rowSpan": 1,
-						"column": 0,
-						"row": 4,
-						"layoutName": "Header"
-					},
-					"bindTo": "UsrCommentString",
-					"enabled": true
-				},
-				"parentName": "Header",
-				"propertyName": "items",
-				"index": 6
-			},
-			{
-				"operation": "insert",
 				"name": "UsrTemplateb66b3bdb-aae0-4621-9ee2-d6528d99b3e3",
 				"values": {
 					"layout": {
@@ -337,7 +317,59 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 				},
 				"parentName": "Header",
 				"propertyName": "items",
+				"index": 6
+			},
+			{
+				"operation": "insert",
+				"name": "UsrCommentString",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 5,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrCommentString",
+					"enabled": true
+				},
+				"parentName": "Header",
+				"propertyName": "items",
 				"index": 7
+			},
+			{
+				"operation": "insert",
+				"name": "UsrTyped02b973d-7b38-4bd0-b079-adafe3073c0c",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 12,
+						"row": 3,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrType"
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 8
+			},
+			{
+				"operation": "insert",
+				"name": "UsrView634aba41-e9d1-4eda-b226-0232419b7956",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 4,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrView"
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 9
 			},
 			{
 				"operation": "insert",
