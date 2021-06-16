@@ -11,7 +11,9 @@
 			<Item Name="Columns.UsrReleaseDate.Caption" Value="Дата последнего выпуска" />
 			<Item Name="Columns.UsrResponsibleLookup.Caption" Value="Ответственный" />
 			<Item Name="Columns.UsrTemplate.Caption" Value="Шаблон" />
+			<Item Name="Columns.UsrType.Caption" Value="Тип издания" />
 			<Item Name="Columns.UsrValidBoolean.Caption" Value="Активно" />
+			<Item Name="Columns.UsrView.Caption" Value="Вид издания" />
 		</Items>
 	</Group>
 </Resources>

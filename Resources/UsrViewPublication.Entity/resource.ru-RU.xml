@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Вид издания" />
+			<Item Name="Columns.UsrType.Caption" Value="Тип издания" />
+			<Item Name="Columns.UsrView.Caption" Value="Вид издания" />
+			<Item Name="EventsProcessSchema.Caption" Value="Бизнес-процесс" />
+		</Items>
+	</Group>
+</Resources>

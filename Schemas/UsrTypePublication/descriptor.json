@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "37aba74c-a5ed-4f59-bba8-5504803352f8",
+    "Name": "UsrTypePublication",
+    "ModifiedOnUtc": "\/Date(1623852488000)\/",
+    "Parent": {
+      "UId": "11ab4bcb-9b23-4b6d-9c86-520fae925d75",
+      "Name": "BaseLookup"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Тип издания"
+  }
+}

@@ -14,13 +14,19 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                     "dataValueType": Terrasoft.DataValueType.BOOLEAN,
                     "value": true
                 },
-				"TemplatePublication": {
+				"UsrTemplate": {
 					dependencies: [
 						{
 							columns: ["UsrTemplate"],
 							methodName: "setDataFromTemplate"
 						}
-					]
+					],
+					lookupListConfig:{
+						columns:[
+							"UsrComment",
+							"UsrResponsibleLookup"
+						]
+					}
 				},
             },
             modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/ ,
@@ -47,21 +53,8 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
             businessRules: /**SCHEMA_BUSINESS_RULES*/ {} /**SCHEMA_BUSINESS_RULES*/ ,
             methods: {
 				setDataFromTemplate: function() {
-					var templatePublication = this.get("UsrTemplate");
-					var esq = Ext.create("Terrasoft.EntitySchemaQuery", {
-						rootSchemaName: "UsrPublicationTemplate"
-					});
-					esq.addColumn("UsrComment", "UsrComment");
-					esq.addColumn("UsrResponsibleLookup", "UsrResponsibleLookup");
-					var templateName = esq.createColumnFilterWithParameter(Terrasoft.ComparisonType.EQUAL,
-						"UsrName", templatePublication.name);
-					//esq.filters.logicalOperation = Terrasoft.LogicalOperatorType.AND;
-					esq.filters.add("templateName", templateName);
-					esq.getEntityCollection(function(result) {
-						var item = result.collection.first();
-						this.set("UsrCommentString", item.get("UsrComment"));
-						this.set("UsrResponsibleLookup", item.get("UsrResponsibleLookup"));
-					}, this);
+					this.set("UsrCommentString", this.$UsrTemplate.UsrComment);
+					this.set("UsrResponsibleLookup", this.$UsrTemplate.UsrResponsibleLookup);
 				},
 
                 getActions: function() {

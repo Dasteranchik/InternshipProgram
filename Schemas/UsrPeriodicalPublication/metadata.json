@@ -183,7 +183,31 @@
   "E17": "UsrTemplateId",
   "E18": "UsrTemplateUsrName"
 }
-~ MetaData.Schema.D2 ["ae0e45ca-c495-4fe7-a39d-3ab7278e1617","e80190a5-03b2-4095-90f7-a193a960adee","ebf6bb93-8aa6-4a01-900d-c6ea67affe21","9928edec-4272-425a-93bb-48743fee4b04","3015559e-cbc6-406a-88af-07f7930be832","3fabd836-6a53-4d8d-9069-6df88d9dae1e","ab304a8d-857a-4191-b789-6b247ff2e27f","608e999c-3756-4c1b-9210-9f86a64552b2","915eb3b7-f07d-4fc1-b505-e3ac5b30a413","7822b007-ae02-4ce4-89d5-ca7323476353","adbdba44-4b8b-4ee8-a32d-e04e8e6d27c3","b08b923f-4882-4fa7-9e75-a092587cd52e","aa437740-a7c8-411b-a767-daa716f81e4d","4341df47-0b42-45bf-b233-b2cb97d163ec","c602a5fe-37ae-4eda-b197-e83af8b9d7c5"]
++ MetaData.Schema.D2 {
+  "UId": "6eb75451-0f6f-44c5-af37-abf1ee77675f",
+  "A2": "UsrView",
+  "A3": "113614c1-4522-4198-919d-a2a20c7b16f8",
+  "A4": "113614c1-4522-4198-919d-a2a20c7b16f8",
+  "A5": "a1f013a0-1b23-49c2-b5ea-9cd9b95abf5c",
+  "S2": "b295071f-7ea9-4e62-8d1a-919bf3732ff2",
+  "S4": "4eddb5b2-ac7f-43bc-abf6-d62b5d5c848e",
+  "E6": true,
+  "E17": "UsrViewId",
+  "E18": "UsrViewName"
+}
++ MetaData.Schema.D2 {
+  "UId": "3affed15-f1b2-472f-83a5-3dc5e200615c",
+  "A2": "UsrType",
+  "A3": "113614c1-4522-4198-919d-a2a20c7b16f8",
+  "A4": "113614c1-4522-4198-919d-a2a20c7b16f8",
+  "A5": "a1f013a0-1b23-49c2-b5ea-9cd9b95abf5c",
+  "S2": "b295071f-7ea9-4e62-8d1a-919bf3732ff2",
+  "S4": "37aba74c-a5ed-4f59-bba8-5504803352f8",
+  "E6": true,
+  "E17": "UsrTypeId",
+  "E18": "UsrTypeUsrType"
+}
+~ MetaData.Schema.D2 ["ae0e45ca-c495-4fe7-a39d-3ab7278e1617","e80190a5-03b2-4095-90f7-a193a960adee","ebf6bb93-8aa6-4a01-900d-c6ea67affe21","9928edec-4272-425a-93bb-48743fee4b04","3015559e-cbc6-406a-88af-07f7930be832","3fabd836-6a53-4d8d-9069-6df88d9dae1e","ab304a8d-857a-4191-b789-6b247ff2e27f","608e999c-3756-4c1b-9210-9f86a64552b2","915eb3b7-f07d-4fc1-b505-e3ac5b30a413","7822b007-ae02-4ce4-89d5-ca7323476353","adbdba44-4b8b-4ee8-a32d-e04e8e6d27c3","b08b923f-4882-4fa7-9e75-a092587cd52e","aa437740-a7c8-411b-a767-daa716f81e4d","4341df47-0b42-45bf-b233-b2cb97d163ec","c602a5fe-37ae-4eda-b197-e83af8b9d7c5","6eb75451-0f6f-44c5-af37-abf1ee77675f","3affed15-f1b2-472f-83a5-3dc5e200615c"]
 - MetaData.Schema.EG1.BK29
 - MetaData.Schema.EG1.BK30
 - MetaData.Schema.D1
