@@ -22,10 +22,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 						}
 					],
 					lookupListConfig:{
-						columns:[
-							"UsrComment",
-							"UsrResponsibleLookup"
-						]
+						columns:[ "UsrComment","UsrResponsibleLookup" ]
 					}
 				},
 				"UsrView": {
@@ -36,10 +33,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 						}
 					],
 					lookupListConfig:{
-						columns:[
-							"UsrView",
-							"UsrTypeId"
-						],
+						columns:[ "UsrView", "UsrTypeId" ],
 						filter: function(){
 							var filterType = this.Terrasoft.createFilterGroup();
 							var type = this.get("UsrType");
@@ -203,7 +197,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
             diff: /**SCHEMA_DIFF*/[
 			{
 				"operation": "insert",
-				"name": "UsrNamedac09aa8-88f6-40e9-8298-62985a98d1a1",
+				"name": "UsrName",
 				"values": {
 					"layout": {
 						"colSpan": 24,
@@ -215,23 +209,6 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 					"bindTo": "UsrName"
 				},
 				"parentName": "ProfileContainer",
-				"propertyName": "items",
-				"index": 0
-			},
-			{
-				"operation": "insert",
-				"name": "UsrName3b3a2aa8-ab63-4c30-8aa8-58b60a07de2c",
-				"values": {
-					"layout": {
-						"colSpan": 12,
-						"rowSpan": 1,
-						"column": 0,
-						"row": 0,
-						"layoutName": "Header"
-					},
-					"bindTo": "UsrName"
-				},
-				"parentName": "Header",
 				"propertyName": "items",
 				"index": 0
 			},
@@ -329,7 +306,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 			},
 			{
 				"operation": "insert",
-				"name": "UsrTemplateb66b3bdb-aae0-4621-9ee2-d6528d99b3e3",
+				"name": "UsrTemplate",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -364,7 +341,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 			},
 			{
 				"operation": "insert",
-				"name": "UsrTyped02b973d-7b38-4bd0-b079-adafe3073c0c",
+				"name": "UsrType",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -381,7 +358,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 			},
 			{
 				"operation": "insert",
-				"name": "UsrView634aba41-e9d1-4eda-b226-0232419b7956",
+				"name": "UsrView",
 				"values": {
 					"layout": {
 						"colSpan": 12,
