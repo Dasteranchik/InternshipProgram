@@ -28,6 +28,28 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 						]
 					}
 				},
+				"UsrView": {
+					dependencies: [
+						{
+							columns: ["UsrView"],
+							methodName: "setDataFromType"
+						}
+					],
+					lookupListConfig:{
+						columns:[
+							"UsrView",
+							"UsrTypeId"
+						],
+						filter: function(){
+							var filterType = this.Terrasoft.createFilterGroup();
+							var type = this.get("UsrType");
+							if (type && type.value)	{
+								filterType.addItem(Terrasoft.createColumnFilterWithParameter(Terrasoft.ComparisonType.EQUAL, "UsrType", type.value));
+							}
+							return filterType;
+						}
+					}
+				},
             },
             modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/ ,
             details: /**SCHEMA_DETAILS*/{
@@ -53,6 +75,10 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 				setDataFromTemplate: function() {
 					this.set("UsrCommentString", this.$UsrTemplate.UsrComment);
 					this.set("UsrResponsibleLookup", this.$UsrTemplate.UsrResponsibleLookup);
+				},
+
+				setDataFromType: function(){
+					debugger;
 				},
 
                 getActions: function() {
