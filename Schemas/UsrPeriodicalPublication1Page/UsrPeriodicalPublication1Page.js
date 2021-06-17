@@ -78,7 +78,6 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 				},
 
 				setDataFromType: function(){
-					debugger;
 				},
 
                 getActions: function() {
