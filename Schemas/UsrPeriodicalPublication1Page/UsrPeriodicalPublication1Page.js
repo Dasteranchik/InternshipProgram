@@ -68,7 +68,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                 },
 
                 setDataFromType: function() {
-                    //this.set("UsrType", this.$UsrView.UsrType);
+
                 },
 
                 getActions: function() {

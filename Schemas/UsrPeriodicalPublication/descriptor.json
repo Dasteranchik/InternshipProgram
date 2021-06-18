@@ -2,7 +2,7 @@
   "Descriptor": {
     "UId": "113614c1-4522-4198-919d-a2a20c7b16f8",
     "Name": "UsrPeriodicalPublication",
-    "ModifiedOnUtc": "\/Date(1623852648000)\/",
+    "ModifiedOnUtc": "\/Date(1624023423000)\/",
     "Parent": {
       "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
       "Name": "BaseEntity"

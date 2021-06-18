@@ -1,0 +1,9 @@
+﻿{
+  "Descriptor": {
+    "UId": "aab82475-3a54-470d-b486-0e00349322e2",
+    "Name": "UsrPeriodicalPublicationEventListener",
+    "ModifiedOnUtc": "\/Date(1624015766000)\/",
+    "ManagerName": "SourceCodeSchemaManager",
+    "Caption": "Автонумерация изданий"
+  }
+}

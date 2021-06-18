@@ -129,7 +129,6 @@
   "A4": "113614c1-4522-4198-919d-a2a20c7b16f8",
   "A5": "a1f013a0-1b23-49c2-b5ea-9cd9b95abf5c",
   "S2": "8b3f29bb-ea14-4ce5-a5c5-293a929b6ba2",
-  "E2": 1,
   "E5": false
 }
 + MetaData.Schema.D2 {
@@ -193,7 +192,7 @@
   "S4": "4eddb5b2-ac7f-43bc-abf6-d62b5d5c848e",
   "E6": true,
   "E17": "UsrViewId",
-  "E18": "UsrViewName"
+  "E18": "UsrViewUsrView"
 }
 + MetaData.Schema.D2 {
   "UId": "3affed15-f1b2-472f-83a5-3dc5e200615c",
