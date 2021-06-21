@@ -138,7 +138,9 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                         if(this.get("UsrReleaseDate") > new Date()){
                             Terrasoft.chain(
                                 function (next) {
-                                    this.setDataFromReleaseDate();
+                                    var message = this.get("Resources.Strings.InvalidDate");
+                                    this.showInformationDialog(message);
+                                    response.success = false;
                                     callback.call(scope || this, response);
                                     next();
                                 }, 
@@ -148,11 +150,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                     this]);
                 },
 
-                setDataFromReleaseDate: function (){
-                    var message = this.get("Resources.Strings.InvalidDate");
-                    this.showInformationDialog(message);
-                    this.set("UsrReleaseDate", null);
-                },
+
 
                 numberDailyPublishedPublications: function (callback) {
                     var frequency = this.get("UsrFrequencyrLookup");
