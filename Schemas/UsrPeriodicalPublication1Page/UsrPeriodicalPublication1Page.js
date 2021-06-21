@@ -33,7 +33,10 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                             var filterType = this.Terrasoft.createFilterGroup();
                             var type = this.get("UsrType");
                             if (type && type.value) {
-                                filterType.addItem(Terrasoft.createColumnFilterWithParameter(Terrasoft.ComparisonType.EQUAL, "UsrType", type.value));
+                                filterType.addItem(Terrasoft.createColumnFilterWithParameter(
+                                    Terrasoft.ComparisonType.EQUAL,
+                                    "UsrType",
+                                    type.value));
                             }
                             return filterType;
                         }
@@ -103,6 +106,11 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 
                 },
 
+                setValidationConfig: function() {
+                    this.callParent(arguments);
+                    this.addColumnValidator("UsrPeriodicity", this.periodicityValidator);
+                },
+
                 asyncValidate: function (callback, scope) {
                     this.callParent([function (response) {
                         if (!this.validateResponse(response)) {
@@ -132,8 +140,6 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                                     next();
                                 },
                             this);
-                            callback.call(scope || this, response);
-                            return;
                         }
                         if(this.get("UsrReleaseDate") > new Date()){
                             Terrasoft.chain(
@@ -141,11 +147,12 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                                     var message = this.get("Resources.Strings.InvalidDate");
                                     this.showInformationDialog(message);
                                     response.success = false;
-                                    callback.call(scope || this, response);
                                     next();
-                                }, 
+                                },
                             this);
                         }
+                        callback.call(scope || this, response);
+                        return;
                     }, 
                     this]);
                 },
