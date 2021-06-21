@@ -108,35 +108,50 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                         if (!this.validateResponse(response)) {
                             return;
                         }
-                        if (!(this.get("UsrValidBoolean") &&
-                            this.get("UsrFrequencyrLookup") === UsrConfigurationConstants.Daily)) {
+                        if (this.get("UsrValidBoolean") &&
+                            this.get("UsrFrequencyrLookup") === UsrConfigurationConstants.Daily) {
+                            Terrasoft.chain(
+                                function (next) {
+                                    this.numberDailyPublishedPublications(function (result) {
+                                        next(result);
+                                    }, this);
+                                },
+                                function (next, countPublication) {
+                                    this.checkingAcceptableDailies(function (maxCount) {
+                                        if (countPublication >= maxCount) {
+                                            var messageTemplate = this.get("Resources.Strings.LimitPublicationMessage");
+                                            var message = Ext.String.format(messageTemplate, maxCount);
+                                            this.showInformationDialog(message);
+                                            response.success = false;
+                                        }
+                                        next();
+                                    });
+                                },
+                                function (next) {
+                                    callback.call(scope || this, response);
+                                    next();
+                                },
+                            this);
                             callback.call(scope || this, response);
                             return;
                         }
-                        //collection.js изучить
-                        Terrasoft.chain(
-                            function (next) {
-                                this.numberDailyPublishedPublications(function (result) {
-                                    next(result);
-                                }, this);
-                            },
-                            function (next, countPublication) {
-                                this.checkingAcceptableDailies(function (maxCount) {
-                                    if (countPublication >= maxCount) {
-                                        var messageTemplate = this.get("Resources.Strings.LimitPublicationMessage");
-                                        var message = Ext.String.format(messageTemplate, maxCount);
-                                        this.showInformationDialog(message);
-                                        response.success = false;
-                                    }
+                        if(this.get("UsrReleaseDate") > new Date()){
+                            Terrasoft.chain(
+                                function (next) {
+                                    this.setDataFromReleaseDate();
+                                    callback.call(scope || this, response);
                                     next();
-                                });
-                            },
-                            function (next) {
-                                callback.call(scope || this, response);
-                                next();
-                            },
+                                }, 
                             this);
-                    }, this]);
+                        }
+                    }, 
+                    this]);
+                },
+
+                setDataFromReleaseDate: function (){
+                    var message = this.get("Resources.Strings.InvalidDate");
+                    this.showInformationDialog(message);
+                    this.set("UsrReleaseDate", null);
                 },
 
                 numberDailyPublishedPublications: function (callback) {
