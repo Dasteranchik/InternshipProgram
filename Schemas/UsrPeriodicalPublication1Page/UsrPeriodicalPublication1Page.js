@@ -128,7 +128,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                         if (!this.validateResponse(response)) {
                             return;
                         }
-                        if (this.get("UsrFrequencyrLookup").value === UsrConfigurationConstants.Daily || this.get("UsrName")) {
+                        if (this.get("UsrFrequencyrLookup").value === UsrConfigurationConstants.Daily) {
                             Terrasoft.chain(
                                 function (next) {
                                     this.numberDailyPublishedPublications(function (result) {
@@ -149,8 +149,8 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                                 function (next) {
                                     this.checkingNameMatch(function (result){
                                         if (!(result.success)){
-                                            var message = scope.get("Resources.Strings.DuplicateName");
-                                            scope.showInformationDialog(message);
+                                            var message = this.get("Resources.Strings.DuplicateName");
+                                            this.showInformationDialog(message);
                                             response.success = false;
                                         }
                                         next();
