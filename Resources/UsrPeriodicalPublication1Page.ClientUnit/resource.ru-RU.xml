@@ -4,6 +4,8 @@
 		<Items>
 			<Item Name="Caption" Value="Страница редактирования: &quot;Периодические издания&quot;" />
 			<Item Name="LocalizableStrings.AddingDetailsButton.Value" Value="Добавление 6 деталей" />
+			<Item Name="LocalizableStrings.DuplicateName.Value" Value="Данное Наименование уже существует" />
+			<Item Name="LocalizableStrings.InvalidDate.Value" Value="Неверно выбрана дата" />
 			<Item Name="LocalizableStrings.LimitPublicationMessage.Value" Value="Производственные мощности ограничены и допускается не более 5 изданий" />
 		</Items>
 	</Group>

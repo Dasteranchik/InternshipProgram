@@ -108,7 +108,19 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
 
                 setValidationConfig: function() {
                     this.callParent(arguments);
-                    this.addColumnValidator("UsrPeriodicity", this.periodicityValidator);
+                    this.addColumnValidator("UsrReleaseDate", this.nameReleaseDate);
+                },
+
+                nameReleaseDate: function() {
+                    var invalidMessage = "";
+                    var dateNow = new Date();
+                    var dateSpecified = this.get("UsrReleaseDate");
+                    if( dateSpecified > dateNow){
+                        invalidMessage = this.get("Resources.Strings.InvalidDate");
+                    }
+                    return{
+                        invalidMessage: invalidMessage
+                    };
                 },
 
                 asyncValidate: function (callback, scope) {
@@ -116,8 +128,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                         if (!this.validateResponse(response)) {
                             return;
                         }
-                        if (this.get("UsrValidBoolean") &&
-                            this.get("UsrFrequencyrLookup") === UsrConfigurationConstants.Daily) {
+                        if (this.get("UsrFrequencyrLookup").value === UsrConfigurationConstants.Daily || this.get("UsrName")) {
                             Terrasoft.chain(
                                 function (next) {
                                     this.numberDailyPublishedPublications(function (result) {
@@ -126,7 +137,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                                 },
                                 function (next, countPublication) {
                                     this.checkingAcceptableDailies(function (maxCount) {
-                                        if (countPublication >= maxCount) {
+                                        if (countPublication >= maxCount && this.get("UsrValidBoolean")) {
                                             var messageTemplate = this.get("Resources.Strings.LimitPublicationMessage");
                                             var message = Ext.String.format(messageTemplate, maxCount);
                                             this.showInformationDialog(message);
@@ -136,28 +147,50 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                                     });
                                 },
                                 function (next) {
+                                    this.checkingNameMatch(function (result){
+                                        if (!(result.success)){
+                                            var message = scope.get("Resources.Strings.DuplicateName");
+                                            scope.showInformationDialog(message);
+                                            response.success = false;
+                                        }
+                                        next();
+                                    }); 
+                                },
+                                function (next) {
                                     callback.call(scope || this, response);
                                     next();
                                 },
                             this);
+                        } else{
+                            callback.call(scope || this, response);
                         }
-                        if(this.get("UsrReleaseDate") > new Date()){
-                            Terrasoft.chain(
-                                function (next) {
-                                    var message = this.get("Resources.Strings.InvalidDate");
-                                    this.showInformationDialog(message);
-                                    response.success = false;
-                                    next();
-                                },
-                            this);
-                        }
-                        callback.call(scope || this, response);
                         return;
-                    }, 
+                        }, 
                     this]);
                 },
 
-
+                checkingNameMatch: function (callback) {
+                    var name = this.get("UsrName");
+                    var id = this.get("Id");
+                    var response = { success: true };
+                    var esq = Ext.create("Terrasoft.EntitySchemaQuery", {
+                        rootSchemaName: "UsrPeriodicalPublication"
+                    });
+                    var nameFilter = esq.createColumnFilterWithParameter(Terrasoft.ComparisonType.EQUAL,
+                        "UsrName", name);
+                    var idFilter = esq.createColumnFilterWithParameter(Terrasoft.ComparisonType.NOT_EQUAL,
+                        "Id", id);
+                    esq.filters.logicalOperation = Terrasoft.LogicalOperatorType.AND;
+                    esq.filters.add("nameFilter", nameFilter);
+                    esq.filters.add("idFilter", idFilter);
+                    esq.getEntityCollection(function (result) {
+                        var item = result.collection.first();
+                        if(!(Ext.isEmpty(item))){
+                            response.success = false;
+                        }
+                        callback.call(this, response);
+                    }, this);
+                },
 
                 numberDailyPublishedPublications: function (callback) {
                     var frequency = this.get("UsrFrequencyrLookup");
