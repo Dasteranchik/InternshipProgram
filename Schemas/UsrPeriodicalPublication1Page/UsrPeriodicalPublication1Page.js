@@ -241,7 +241,7 @@ define("UsrPeriodicalPublication1Page", ["UsrConfigurationConstants", "RightUtil
                 onReleaseButton: function () {
                     this.startProcess(
                         function () {
-                            var message = this.get("Resources.Strings.LimitPublicationMessage");
+                            var message = this.get("Resources.Strings.AddingDetailsButton");
                             this.showInformationDialog(message);
                             this.hideBodyMask();
                         });
